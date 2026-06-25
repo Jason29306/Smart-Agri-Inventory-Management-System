@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="navbar">
+  <a href="index.html">Dashboard</a>
+  <a href="products.html">Products</a>
+  <a href="add-product.html">Add Product</a>
+</div>
+<h1>All Products</h1>
+
+<table border="1" align="center">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Supplier</th>
+  </tr>
+  </thead>
+
+  <tbody id="productTable">
+  </tbody>
+
+</table>
+
+<script>
+  fetch('/products')
+  .then(response => response.json())
+  .then(products => {
+
+      let rows = "";
+
+      products.forEach(product => {
+
+          rows += `
+          <tr>
+              <td>${product.id}</td>
+              <td>${product.productName}</td>
+              <td>${product.category}</td>
+              <td>${product.quantity}</td>
+              <td>${product.price}</td>
+              <td>${product.supplier}</td>
+          </tr>
+          `;
+      });
+
+      document.getElementById("productTable").innerHTML = rows;
+  });
+</script>
+
+</body>
+</html>

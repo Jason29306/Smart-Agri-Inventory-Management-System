@@ -1,0 +1,45 @@
+body{
+    font-family: Arial;
+    text-align:center;
+    background:#f4f4f4;
+}
+
+.card{
+    width:300px;
+    margin:20px auto;
+    padding:20px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+h1{
+    color:green;
+}
+.navbar{
+    background:green;
+    padding:15px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    margin:20px;
+    font-weight:bold;
+}
+table{
+    width:90%;
+    margin:auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #ddd;
+}
+
+th{
+    background:green;
+    color:white;
+}
