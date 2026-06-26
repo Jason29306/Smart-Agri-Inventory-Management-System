@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Entry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Dashboard</a>
+    <a href="products.html">Inventory</a>
+    <a href="add-product.html">Add Product</a>
+    <a href="supplier.html">Suppliers</a>
+    <a href="purchase.html">Purchases</a>
+    <a href="sales.html">Sales</a>
+    <a href="login.html">Login</a>
+</div>
+
+<h1>Purchase Entry</h1>
+
+<form id="purchaseForm">
+
+    <input type="number"
+           id="productId"
+           placeholder="Product ID">
+
+    <br><br>
+
+    <input type="number"
+           id="supplierId"
+           placeholder="Supplier ID">
+
+    <br><br>
+
+    <input type="number"
+           id="quantity"
+           placeholder="Quantity">
+
+    <br><br>
+
+    <input type="number"
+           id="cost"
+           placeholder="Cost">
+
+    <br><br>
+
+    <input type="date"
+           id="purchaseDate">
+
+    <br><br>
+
+    <button type="submit">
+        Add Purchase
+    </button>
+
+</form>
+
+<h2>Purchase Records</h2>
+
+<table border="1">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Supplier</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+    </tr>
+    </thead>
+
+    <tbody id="purchaseTable"></tbody>
+
+</table>
+
+<script src="purchase.js"></script>
+
+</body>
+</html>

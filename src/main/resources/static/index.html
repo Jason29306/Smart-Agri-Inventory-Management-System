@@ -4,27 +4,140 @@
     <title>Smart Agri Inventory</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <div class="navbar">
     <a href="index.html">Dashboard</a>
-    <a href="products.html">Products</a>
+    <a href="products.html">Inventory</a>
     <a href="add-product.html">Add Product</a>
+    <a href="supplier.html">Suppliers</a>
+    <a href="purchase.html">Purchases</a>
+    <a href="sales.html">Sales</a>
+    <a href="login.html">Login</a>
 </div>
+
 <h1>Smart Agri Inventory Management System</h1>
+
 <h2>Low Stock Alert</h2>
-
 <ul id="lowStockList"></ul>
-<div class="card">
-    <h2>Total Products</h2>
-    <p id="totalProducts">0</p>
+
+<h2>Inventory Analytics</h2>
+
+<div style="display:flex;gap:20px;flex-wrap:wrap;">
+
+    <div class="card">
+        <h3>Total Products</h3>
+        <p id="totalProducts">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Inventory Stock</h3>
+        <p id="totalStock">0</p>
+    </div>
+
+    <div class="card">
+        <h3>Low Stock Products</h3>
+        <p id="lowStockCount">0</p>
+    </div>
+
 </div>
 
+<h2>Sales Report</h2>
+
 <div class="card">
-    <h2>Low Stock Products</h2>
-    <p id="lowStockProducts">0</p>
+    <h3>Total Revenue</h3>
+    <p id="revenue">₹ 0</p>
 </div>
+
+<h2>Forecast Dashboard</h2>
+
+<table border="1">
+
+    <thead>
+    <tr>
+        <th>Product</th>
+        <th>Stock</th>
+        <th>Forecast</th>
+    </tr>
+    </thead>
+
+    <tbody id="forecastTable"></tbody>
+
+</table>
 
 <script src="script.js"></script>
+
+<script>
+
+    async function loadAnalytics(){
+
+        const productsResponse =
+        await fetch("http://localhost:8080/products");
+
+        const products =
+        await productsResponse.json();
+
+        document.getElementById("totalProducts")
+        .innerText = products.length;
+
+        let totalStock = 0;
+        let lowStock = 0;
+
+        let rows = "";
+
+        products.forEach(p => {
+
+            totalStock += p.quantity;
+
+            let status = "Healthy";
+
+            if(p.quantity < 5){
+                status = "Urgent Reorder";
+                lowStock++;
+            }
+            else if(p.quantity < 10){
+                status = "Reorder Soon";
+                lowStock++;
+            }
+
+            rows += `
+            <tr>
+                <td>${p.name}</td>
+                <td>${p.quantity}</td>
+                <td>${status}</td>
+            </tr>
+            `;
+        });
+
+        document.getElementById("totalStock")
+        .innerText = totalStock;
+
+        document.getElementById("lowStockCount")
+        .innerText = lowStock;
+
+        document.getElementById("forecastTable")
+        .innerHTML = rows;
+
+        const salesResponse =
+        await fetch("http://localhost:8080/sales");
+
+        const sales =
+        await salesResponse.json();
+
+        let revenue = 0;
+
+        sales.forEach(s => {
+            revenue += s.amount;
+        });
+
+        document.getElementById("revenue")
+        .innerText = "₹ " + revenue;
+    }
+
+    loadAnalytics();
+
+</script>
 
 </body>
 </html>

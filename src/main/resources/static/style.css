@@ -5,12 +5,12 @@ body{
 }
 
 .card{
-    width:300px;
+    width:350px;
     margin:20px auto;
-    padding:20px;
+    padding:30px;
     background:white;
-    border-radius:10px;
-    box-shadow:0 0 10px gray;
+    border-radius:12px;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.2);
 }
 
 h1{
@@ -42,4 +42,91 @@ th,td{
 th{
     background:green;
     color:white;
+}
+body{
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f6f9;
+}
+
+.navbar{
+    background-color: #2e7d32;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.navbar a:hover{
+    text-decoration: underline;
+}
+
+h1{
+    color: #2e7d32;
+}
+
+h2{
+    color: #444;
+}
+
+.card{
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+form{
+    background: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+}
+
+input{
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button{
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #1b5e20;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th{
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px;
+}
+
+td{
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
 }

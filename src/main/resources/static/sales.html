@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sales Entry</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.html">Dashboard</a>
+  <a href="products.html">Inventory</a>
+  <a href="add-product.html">Add Product</a>
+  <a href="supplier.html">Suppliers</a>
+  <a href="purchase.html">Purchases</a>
+  <a href="sales.html">Sales</a>
+  <a href="login.html">Login</a>
+</div>
+
+<h1>Sales Entry</h1>
+
+<form id="salesForm">
+
+  <input type="number"
+         id="productId"
+         placeholder="Product ID">
+
+  <br><br>
+
+  <input type="number"
+         id="quantity"
+         placeholder="Quantity Sold">
+
+  <br><br>
+
+  <input type="number"
+         id="amount"
+         placeholder="Amount">
+
+  <br><br>
+
+  <input type="date"
+         id="saleDate">
+
+  <br><br>
+
+  <button type="submit">
+    Add Sale
+  </button>
+
+</form>
+
+<h2>Sales Records</h2>
+
+<table border="1">
+
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Product ID</th>
+    <th>Quantity</th>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+  </thead>
+
+  <tbody id="salesTable"></tbody>
+
+</table>
+
+<script src="sales.js"></script>
+
+</body>
+</html>
