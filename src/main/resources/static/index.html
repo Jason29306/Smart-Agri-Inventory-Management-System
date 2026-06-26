@@ -3,6 +3,8 @@
 <head>
     <title>Smart Agri Inventory</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/jpg" href="favicron.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -14,7 +16,9 @@
     <a href="supplier.html">Suppliers</a>
     <a href="purchase.html">Purchases</a>
     <a href="sales.html">Sales</a>
+    <a href="stock.html">Stock Monitoring</a>
     <a href="login.html">Login</a>
+
 </div>
 
 <h1>Smart Agri Inventory Management System</h1>
@@ -47,7 +51,7 @@
 
 <div class="card">
     <h3>Total Revenue</h3>
-    <p id="revenue">₹ 0</p>
+    <p id="revenue"> 0</p>
 </div>
 
 <h2>Forecast Dashboard</h2>
@@ -101,13 +105,13 @@
                 lowStock++;
             }
 
-            rows += `
-            <tr>
-                <td>${p.name}</td>
-                <td>${p.quantity}</td>
-                <td>${status}</td>
-            </tr>
-            `;
+          rows += `
+<tr>
+    <td>${p.productName}</td>
+    <td>${p.quantity}</td>
+    <td>${status}</td>
+</tr>
+`;
         });
 
         document.getElementById("totalStock")
@@ -132,7 +136,7 @@
         });
 
         document.getElementById("revenue")
-        .innerText = "₹ " + revenue;
+        .innerText =  revenue;
     }
 
     loadAnalytics();

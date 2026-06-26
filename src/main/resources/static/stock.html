@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Stock Monitoring</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpg" href="favicron.jpg">
+</head>
+
+<body>
+
+<div class="navbar">
+  <a href="index.html">Dashboard</a>
+  <a href="products.html">Inventory</a>
+  <a href="add-product.html">Add Product</a>
+  <a href="products.html">Products</a>
+  <a href="supplier.html">Suppliers</a>
+  <a href="purchase.html">Purchases</a>
+  <a href="sales.html">Sales</a>
+  <a href="stock.html">Stock Monitoring</a>
+  <a href="login.html">Login</a>
+</div>
+
+<h1>Stock Monitoring</h1>
+
+<table>
+
+  <thead>
+
+  <tr>
+    <th>ID</th>
+    <th>Product</th>
+    <th>Category</th>
+    <th>Stock</th>
+    <th>Status</th>
+  </tr>
+
+  </thead>
+
+  <tbody id="stockTable">
+
+  </tbody>
+
+</table>
+
+<script>
+
+  async function loadStock(){
+
+  const response=await fetch("http://localhost:8080/products");
+
+  const products=await response.json();
+
+  let output="";
+
+  products.forEach(product=>{
+
+  let status="Available";
+
+  if(product.quantity==0){
+
+  status="Out of Stock";
+
+  }
+  else if(product.quantity<10){
+
+  status="Low Stock";
+
+  }
+
+  output+=`
+
+  <tr>
+
+  <td>${product.id}</td>
+
+  <td>${product.productName}</td>
+
+  <td>${product.category}</td>
+
+  <td>${product.quantity}</td>
+
+  <td>${status}</td>
+
+  </tr>
+
+  `;
+
+  });
+
+  document.getElementById("stockTable").innerHTML=output;
+
+  }
+
+  loadStock();
+
+</script>
+
+</body>
+</html>

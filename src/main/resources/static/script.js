@@ -15,7 +15,8 @@ fetch('/products/low-stock')
     let html = "";
 
     products.forEach(product => {
-        html += `<li>${product.productName} - Qty: ${product.quantity}</li>`;
+        html += `<li><i class="fa-solid fa-triangle-exclamation fa-fade"></i>
+        ${product.productName} - Qty: ${product.quantity}</li>`;
     });
 
     document.getElementById("lowStockList").innerHTML = html;
