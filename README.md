@@ -251,8 +251,13 @@ http://localhost:8080/login.html
 ```
 
 ---
+## 🎥 Project Demonstration Video
 
+A complete demonstration of the Smart Agri Inventory Management System is available here:
 
+https://drive.google.com/file/d/1BkNbsuOenqjLBBIIPtBj5KGRN99x9e50/view?usp=sharing
+
+---
 # 👨‍💻 Developer
 
 **Jason J**
